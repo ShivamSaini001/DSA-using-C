@@ -70,12 +70,12 @@ Let we have an Array named as stack and a local variable top.
 ```c
 //Stack Implementation using stack (call by value)
 
-  #define max 10
+  #define MAX 10
   #include<stdio.h>
   #include<conio.h>
   
   int push(int stack[], int top){
-      if(top == max){
+      if(top == MAX-1){
           printf("Stack is full(Overflow)!\n");
       }else{
           int data;
@@ -119,7 +119,7 @@ Let we have an Array named as stack and a local variable top.
   
   
   void main(){
-      int stack[max], top = -1;
+      int stack[MAX], top = -1;
       int ch;
 
       printf("\n1. push\n");
@@ -162,8 +162,82 @@ Let we have an Array named as stack and a local variable top.
 ## **Code:**
 
 ```c
-
-
+  //Stack Implementation using stack (call by reference)
+  
+    #define MAX 10
+    #include<stdio.h>
+    #include<conio.h>
+  
+    void push(int stack[], int *top){
+        if(*top == MAX-1){
+            printf("Stack is full(Overflow)!\n");
+        }else{
+            int data;
+            printf("Enter the Element: ");
+            scanf("%d", &data);
+            (*top)++;
+            stack[*top] = data;
+        }
+    }
+  
+    void pop(int stack[], int *top){
+        if(*top == -1){
+            printf("Stack is empty (Underflow):\n ");
+        }else{
+            printf("Deleted element is: %d", stack[*top]);
+            (*top)--;
+        }
+    }
+  
+    void peek(int stack[], int top){
+        if(top == -1){
+            printf("Stack is empty: \n");
+        }else{
+            printf("Peek element is: %d", stack[top]);
+        }
+    }
+  
+    void display(int stack[], int top){
+        if(top == -1){
+            printf("Stack is empty: \n");
+        }else{
+            printf("Stack elements are: \n");
+            while(top >= 0){
+                printf("%d ", stack[top]);
+                top--;
+            }
+        }
+    }
+  
+  
+    void main(){
+        int stack[MAX], top = -1;
+        int ch;
+  
+        printf("\n1. push\n");
+        printf("2. pop\n");
+        printf("3. peek\n");
+        printf("4. display\n");
+        printf("5. Exit\n");
+        do{
+            printf("\nEnter your choice: ");
+            scanf("%d", &ch);
+            switch(ch){
+                case 1:
+                    push(stack, &top);
+                    break;
+                case 2:
+                    pop(stack, &top);
+                    break;
+                case 3:
+                    peek(stack, top);
+                    break;
+                case 4:
+                    display(stack, top);
+                    break;
+            }
+        }while(ch <= 4);
+    }
 ```
 
 
