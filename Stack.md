@@ -1,6 +1,6 @@
 # Stack Notes
 
-## **Problem statement:**
+## **Problem statement-1:**
 Write a C program to implement stack using static memory allocation(Array) with call by value concept(By Returninig).
 
 ## **Objective:**
@@ -65,10 +65,102 @@ Let we have an Array named as stack and a local variable top.
   step-7: STOP
 </pre>
 
-## **Code:  **
+## **Code:**
 
 ```c
+//Stack Implementation using stack (call by value)
 
+  #define max 10
+  #include<stdio.h>
+  #include<conio.h>
+  
+  int push(int stack[], int top){
+      if(top == max){
+          printf("Stack is full(Overflow)!\n");
+      }else{
+          int data;
+          printf("Enter the Element: ");
+          scanf("%d", &data);
+          top++;
+          stack[top] = data;
+      }
+      return top;
+  }
+  
+  int pop(int stack[], int top){
+      if(top == -1){
+          printf("Stack is empty (Underflow):\n ");
+      }else{
+          printf("Deleted element is: %d", stack[top]);
+          top--;
+      }
+      return top;
+  }
+  
+  void peek(int stack[], int top){
+      if(top == -1){
+          printf("Stack is empty: \n");
+      }else{
+          printf("Peek element is: %d", stack[top]);
+      }
+  }
+  
+  void display(int stack[], int top){
+      if(top == -1){
+          printf("Stack is empty: \n");
+      }else{
+          printf("Stack elements are: \n");
+          while(top >= 0){
+              printf("%d ", stack[top]);
+              top--;
+          }
+      }
+  }
+  
+  
+  void main(){
+      int stack[max], top = -1;
+      int ch;
+
+      printf("\n1. push\n");
+      printf("2. pop\n");
+      printf("3. peek\n");
+      printf("4. display\n");
+      printf("5. Exit\n");
+      do{
+          printf("Enter your choice: ");
+          scanf("%d", &ch);
+          switch(ch){
+              case 1:
+                  top = push(stack, top);
+                  break;
+              case 2:
+                  top = pop(stack, top);
+                  break;
+              case 3:
+                  peek(stack, top);
+                  break;
+              case 4:
+                  display(stack, top);
+                  break;
+          }
+      }while(ch <= 4);
+  }
 
 ```
+
+
+## **Problem statement-2:**
+Write a C program to implement stack using static memory allocation(Array) with call by reference concept(without returninig).
+
+## **Objective:**
+To understand the concept of Stack.
+
+## Assumptions:
+Let we have an Array named as stack and a local variable top.
+
+## **Algorithm for push operation:**
+
+
+
 
