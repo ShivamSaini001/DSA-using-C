@@ -159,8 +159,12 @@ To understand the concept of Stack.
 ## Assumptions:
 Let we have an Array named as stack and a local variable top.
 
-## **Algorithm for push operation:**
+## **Code:**
 
+```c
+
+
+```
 
 
 
