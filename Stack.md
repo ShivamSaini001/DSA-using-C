@@ -4,7 +4,7 @@
 Write a C program to implement stack using static memory allocation(Array) with call by value concept(By Returninig).
 
 ## **Objective:**
-To understand the concept of Stack.
+To understand the concept of Stack using Array.
 
 ## Assumptions:
 Let we have an Array named as stack and a local variable top.
@@ -17,7 +17,7 @@ Let we have an Array named as stack and a local variable top.
           Declare variable X
   Step-3: check if(top == MAX-1)
           then, print "Stack is Full"
-                go to step-7
+                goto step-7
   Step-4: Input X
   Step-5: set top = top+1
   Step-7: set Stack[top] = X
@@ -32,7 +32,7 @@ Let we have an Array named as stack and a local variable top.
   Step-2: Recieved Parameters Stack[], top, MAX
   Step-3: check if(top == -1)
           then, print "Stack is Empty"
-                go to step-6
+                goto step-6
   Step-4: print Stack[top]
   Step-5: set top = top-1
   Step-6: return top
@@ -46,7 +46,7 @@ Let we have an Array named as stack and a local variable top.
   Step-2: Recieved Parameters Stack[], top
   Step-3: check if(top == -1)
           then, print "Stack is Empty"
-                go to step-5
+                goto step-5
   Step-4: print Stack[top]
   step-5: STOP
 </pre>
@@ -58,7 +58,7 @@ Let we have an Array named as stack and a local variable top.
   Step-2: Recieved Parameters Stack[], top
   Step-3: check if(top == -1)
           then, print "Stack is Empty"
-                go to step-7
+                goto step-7
   Step-4: Repeat step-5 and step-6 while(top != -1)
   Step-5: print Stack[top]
   Step-6: top = top-1
@@ -154,7 +154,7 @@ Let we have an Array named as stack and a local variable top.
 Write a C program to implement stack using static memory allocation(Array) with call by reference concept(without returninig).
 
 ## **Objective:**
-To understand the concept of Stack.
+To understand the concept of Stack using Array.
 
 ## Assumptions:
 Let we have an Array named as stack and a local variable top.
@@ -239,6 +239,225 @@ Let we have an Array named as stack and a local variable top.
         }while(ch <= 4);
     }
 ```
+
+
+## **Problem statement-3:**
+Write a C program to implement stack using dynamic memory allocation(Linked List) with call by value concept(By Returninig).
+
+## **Objective:**
+To understand the concept of Stack using Linked List.
+
+## Assumptions:
+Let we have a complex data type structure and a local pointer top initialize with NULL.
+
+## **Algorithm for push operation:**
+// Note: Insertion and Deletion operation at the start of the Linked List.
+
+
+## **Code:**
+```c
+  // Implement Stack using Linked List with the concept of call by value.
+  
+  #include<stdio.h>
+  
+  typedef struct Stack{
+      int data;
+      struct Stack *next;
+  }Stack;
+  
+  Stack* push(Stack *top){
+      int x;
+      Stack *newNode = NULL;
+      newNode = (Stack *)malloc(sizeof(Stack));
+      if(newNode == NULL){
+          printf("\nMemory is not allocated: ");
+      }
+      else{
+          printf("Enter a integer number: ");
+          scanf("%d", &x);
+          newNode->data = x;
+          newNode->next = top;
+          top = newNode;
+      }
+      return top;
+  }
+  
+  Stack* pop(Stack *top){
+      if(top == NULL){
+          printf("\nStack is Empty!");
+      }
+      else{
+          Stack *p = top;
+          printf("Poped element is: %d", p->data);
+          top = top->next;
+          free(p);
+      }
+      return top;
+  }
+  
+  void display(Stack *top){
+      if(top == NULL){
+          printf("\nStack is Empty!");
+      }
+      else{
+          printf("\nStack elements is: \n");
+          while(top->next != NULL){
+              printf("%d ", top->data);
+              top = top->next;
+          }
+          printf("%d ", top->data);
+      }
+  }
+  
+  void peek(Stack *top){
+      if(top == NULL){
+          printf("\nStack is Empty!");
+      }
+      else{
+          printf("\nPeek element is: %d", top->data);
+      }
+  }
+  
+  void main(){
+      Stack *top = NULL;
+      int ch;
+      printf("\n1. Push \n");
+      printf("2. Pop \n");
+      printf("3. Display \n");
+      printf("4. peek \n");
+      printf("5. exit \n");
+      do{
+          printf("\n\nEnter your choice:");
+          scanf("%d", &ch);
+          switch(ch){
+          case 1:
+              top = push(top);
+              break;
+          case 2:
+              top = pop(top);
+              break;
+          case 3:
+              display(top);
+              break;
+          case 4:
+              peek(top);
+              break;
+          }
+      }while(ch<=4);
+  }
+```
+
+## **Problem statement-4:**
+Write a C program to implement stack using dynamic memory allocation(Linked List) with call by reference concept(Without Returninig).
+
+## **Objective:**
+To understand the concept of Stack using Linked List.
+
+## Assumptions:
+Let we have a complex data type structure and a local pointer top initialize with NULL.
+
+## **Algorithm for push operation:**
+// Note: Insertion and Deletion operation at the start of the Linked List.
+
+
+
+
+## **Code:**
+
+```c
+  // Implement Stack using Linked List with the concept of call by Reference.
+  
+  #include<stdio.h>
+  #include<stdlib.h>
+  
+  typedef struct Stack{
+      int data;
+      struct Stack *next;
+  }Stack;
+  
+  void push(Stack **top){
+      int x;
+      Stack *newNode = NULL;
+      newNode = (Stack *)malloc(sizeof(Stack));
+      if(newNode == NULL){
+          printf("\nMemory is not allocated: ");
+      }
+      else{
+          printf("Enter a integer number: ");
+          scanf("%d", &x);
+          newNode->data = x;
+          newNode->next = *top;
+          *top = newNode;
+      }
+  }
+  
+  void pop(Stack **top){
+      if(*top == NULL){
+          printf("\nStack is Empty!");
+      }
+      else{
+          Stack *p = *top;
+          printf("Poped element is: %d", p->data);
+          *top = (*top)->next;
+          free(p);
+      }
+      return top;
+  }
+  
+  void display(Stack *top){
+      if(top == NULL){
+          printf("\nStack is Empty!");
+      }
+      else{
+          printf("\nStack elements is: \n");
+          while(top->next != NULL){
+              printf("%d ", top->data);
+              top = top->next;
+          }
+          printf("%d ", top->data);
+      }
+  }
+  
+  void peek(Stack *top){
+      if(top == NULL){
+          printf("\nStack is Empty!");
+      }
+      else{
+          printf("\nPeek element is: %d", top->data);
+      }
+  }
+  
+  void main(){
+      Stack *top = NULL;
+      int ch;
+      printf("\n1. Push \n");
+      printf("2. Pop \n");
+      printf("3. Display \n");
+      printf("4. peek \n");
+      printf("5. exit \n");
+      do{
+          printf("\n\nEnter your choice:");
+          scanf("%d", &ch);
+          switch(ch){
+          case 1:
+              push(&top);
+              break;
+          case 2:
+              pop(&top);
+              break;
+          case 3:
+              display(top);
+              break;
+          case 4:
+              peek(top);
+              break;
+          }
+      }while(ch<=4);
+  }
+```
+
+
+
 
 
 
