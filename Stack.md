@@ -13,7 +13,7 @@ Let we have an Array named as stack and a local variable top.
 
 <pre>
   Step-1: START
-  Step-2: Recieved Parameters Stack[], top = -1, MAX
+  Step-2: Recieved Parameters Stack[], top, MAX
           Declare variable X
   Step-3: check if(top == MAX-1)
           then, print "Stack is Full"
@@ -29,7 +29,7 @@ Let we have an Array named as stack and a local variable top.
 
 <pre>
   Step-1: START
-  Step-2: Recieved Parameters Stack[], top = -1, MAX
+  Step-2: Recieved Parameters Stack[], top, MAX
   Step-3: check if(top == -1)
           then, print "Stack is Empty"
                 go to step-6
@@ -39,4 +39,36 @@ Let we have an Array named as stack and a local variable top.
   step-7: STOP
 </pre>
 
+## **Algorithm for peek operation:**
+
+<pre>
+  Step-1: START
+  Step-2: Recieved Parameters Stack[], top
+  Step-3: check if(top == -1)
+          then, print "Stack is Empty"
+                go to step-5
+  Step-4: print Stack[top]
+  step-5: STOP
+</pre>
+
+## **Algorithm for display operation:**
+
+<pre>
+  Step-1: START
+  Step-2: Recieved Parameters Stack[], top
+  Step-3: check if(top == -1)
+          then, print "Stack is Empty"
+                go to step-7
+  Step-4: Repeat step-5 and step-6 while(top != -1)
+  Step-5: print Stack[top]
+  Step-6: top = top-1
+  step-7: STOP
+</pre>
+
+## **Code:  **
+
+```c
+
+
+```
 
