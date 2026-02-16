@@ -163,7 +163,7 @@ Let we have an Array named as stack and a local variable top.
 
 ```c
   //Stack Implementation using stack (call by reference)
-  
+
     #define MAX 10
     #include<stdio.h>
     #include<conio.h>
@@ -189,26 +189,26 @@ Let we have an Array named as stack and a local variable top.
         }
     }
   
-    void peek(int stack[], int top){
-        if(top == -1){
+    void peek(int stack[], int *top){
+        if(*top == -1){
             printf("Stack is empty: \n");
         }else{
-            printf("Peek element is: %d", stack[top]);
+            printf("Peek element is: %d", stack[*top]);
         }
     }
   
-    void display(int stack[], int top){
-        if(top == -1){
+    void display(int stack[], int *top){
+        if(*top == -1){
             printf("Stack is empty: \n");
         }else{
+            int temp = *top;
             printf("Stack elements are: \n");
-            while(top >= 0){
-                printf("%d ", stack[top]);
-                top--;
+            while(temp >= 0){
+                printf("%d ", stack[temp]);
+                temp--;
             }
         }
     }
-  
   
     void main(){
         int stack[MAX], top = -1;
@@ -230,10 +230,10 @@ Let we have an Array named as stack and a local variable top.
                     pop(stack, &top);
                     break;
                 case 3:
-                    peek(stack, top);
+                    peek(stack, &top);
                     break;
                 case 4:
-                    display(stack, top);
+                    display(stack, &top);
                     break;
             }
         }while(ch <= 4);
