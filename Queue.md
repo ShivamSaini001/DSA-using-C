@@ -23,6 +23,103 @@ A queue has mainly two ends--
 6) isFull()
 
 
+## Simple Queue
+```C
+    #define MAX 10
+    #include<stdio.h>
+    
+    int enqueue(int queue[], int front, int rear);
+    int dequeue(int queue[], int front, int rear);
+    void peek(int queue[], int front, int rear);
+    void display(int queue[], int front, int rear);
+    
+    
+    void main(){
+        int queue[MAX], front=-1, rear=-1, ch;
+        printf("1. Enqueue\n");
+        printf("2. Dequeue\n");
+        printf("3. Peek\n");
+        printf("4. Display\n");
+        printf("5. Exit\n");
+        do{
+           printf("\nEnter your choice: ");
+           scanf("%d", &ch);
+           switch(ch){
+                case 1:
+                    rear = enqueue(queue, front, rear);
+                    if(front==-1){
+                        front++;
+                    }
+                    break;
+                case 2:
+                    front = dequeue(queue, front, rear);
+                    if(front == -1){
+                        rear = -1;
+                    }
+                    break;
+                case 3:
+                    peek(queue, front, rear);
+                    break;
+                case 4:
+                    display(queue, front, rear);
+                    break;
+           }
+        }while(ch < 5);
+    }
+    
+    int enqueue(int queue[], int front, int rear){
+        if(rear == MAX-1){
+            printf("Queue is full!\n");
+        }
+        else{
+            int data;
+            printf("Enter a value: ");
+            scanf("%d",&data);
+            rear++;
+            queue[rear]=data;
+        }
+        return rear;
+    }
+    
+    int dequeue(int queue[], int front, int rear){
+        if(front == -1 && rear == -1){
+            printf("Queue is empty!\n");
+        }
+        else{
+            printf("Deleted element is %d\n", queue[front]);
+            if(front == rear){
+                front = -1;
+            }
+            else{
+                front++;
+            }
+        }
+      return front;
+    }
+    
+    void peek(int queue[], int front, int rear){
+        if(front == -1 && rear == -1){
+            printf("Queue is empty!\n");
+        }
+        else{
+            printf("Peek element is: %d\n", queue[front]);
+        }
+    }
+    
+    void display(int queue[], int front, int rear){
+        if(front == -1 && rear == -1){
+            printf("Queue is empty!\n");
+        }
+        else{
+            while(front <= rear){
+                printf("%d ",queue[front]);
+                front++;
+            }
+        }
+    }
+```
+
+
 ## Circular Queue
 
 ```C
@@ -120,4 +217,12 @@ A queue has mainly two ends--
         }
     }
 ```
+
+
+## Deque (Data Structure)
+
+
+
+
+
 
