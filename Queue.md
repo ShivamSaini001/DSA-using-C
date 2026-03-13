@@ -221,8 +221,48 @@ A queue has mainly two ends--
 
 ## Deque (Data Structure)
 
+**Deque** stands for **Double Ended Queue**.
+A **Deque** is a linear data structure that allows **insertion and deletion of elements from both the front and rear ends**.
+
+### Basic Operations of Deque
+
+| Operation	| Description |
+|-----------|-------------|
+| InsertFront | Add element at the front |
+| InsertRear | Add element at the rear |
+| DeleteFront | Remove element from front |
+| DeleteRear | Remove element from rear |
+| GetFront | Read the front element |
+| GetRear | Read the rear element |
+| isEmpty | Check if deque is empty |
+| isFull | Check if deque is full |
 
 
+### Types of Deque
+There are **two main types of Deque**.
+1) **Input Restricted Deque**
+   - Insertion allowed only at one end
+        - Insertion → Rear only
+   - Deletion allowed at both ends
+        - Deletion → Front or Rear
 
+3) **Output Restricted Deque**
+    - Deletion allowed only at one end
+        - Deletion → Front only
+    - Insertion allowed at both ends
+        - Insertion → Front and Rear
+            
+
+### Deque Representation
+1) Array
+2) Doubly Linked List
+
+
+### Applications of Deque
+1) Sliding Window Algorithm
+2) Palindrome Checking
+3) Undo / Redo Systems
+4) Job Scheduling
+5) Breadth First Search (BFS)
 
 
