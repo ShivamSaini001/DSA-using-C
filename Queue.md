@@ -23,6 +23,14 @@ A queue has mainly two ends--
 6) isFull()
 
 
+## Types of Queue
+There are **four main types of queues** in Data Structures:
+1) Linear Queue (Simple Queue)
+2) Circular Queue
+3) Priority Queue
+4) Deque (Double Ended Queue)
+
+
 ## Simple Queue
 ```C
     #define MAX 10
