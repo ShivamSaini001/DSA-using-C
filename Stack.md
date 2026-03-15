@@ -4,13 +4,17 @@ A **Stack** is a **linear data structure or abstract data type (ADT) that follow
 Stack is also called an **Abstract Data Type (ADT)** because it defines operations but not implementation.  
 Stack is considered a complex data structure because it uses other data structures for implementation, such as Arrays, Linked lists, etc.
 
-**Stack overflow?** 
-When **no more space is available in the stack**, but we still try to **push a new element**, it causes **stack overflow**.
-Condition for Stack Overflow
+**Stack overflow?**   
+When **no more space is available in the stack**, but we still try to **push a new element**, it causes **stack overflow**.  
+Condition for Stack Overflow--
+- For Array Implementation -> **top == MAX - 1**  
+- For Linked List Implementation -> **If RAM is full and new node cannot be created**
 
-
-**Stack underflow:** 
-
+**Stack underflow?**   
+When **no elements exist in the stack**, but we still try to **pop**, it causes **stack underflow**.   
+Condition for Stack Underflow--
+- For Array Implementation -> **top == -1**  
+- For Linked List Implementation -> **top == NULL**
 
 ## Basic Operations of Stack
 There are **five** main operations.
