@@ -1,5 +1,69 @@
 # Stack Notes
 
+A **Stack** is a **linear data structure or abstract data type (ADT) that follows the Last In First Out (LIFO) principle** in which **insertion** and **deletion** operations are performed only at one end called the **TOP** of the stack.  
+Stack is also called an **Abstract Data Type (ADT)** because it defines operations but not implementation.
+
+## Basic Operations of Stack
+There are **five** main operations.
+
+| Operation | Description |
+|-----------|-------------|
+| Push | Insert an element on top of the stack |
+| Pop | Remove the top element from the stack |
+| Peek | View the top element without removing it |
+| isEmpty | Check if stack is empty |
+| isFull | Check if stack is full (in array implementation) |
+
+## Time Complexity
+All operations are **constant time**.
+| Operation | Time Complexity |
+|-----------|-----------------|
+| Push | O(1) |
+| Pop | O(1) |
+| Peek | O(1) |
+
+## Applications of Stack
+Stacks are used in many real world and programming situations.
+1) Expression Evaluation
+2) Function Calls (Call Stack)
+3) Undo / Redo Operations
+4) Parenthesis Checking
+5) Backtracking
+
+## Types of Stack
+1) **Fixed Size Stack**
+   - A fixed size stack has a predefined capacity.
+   - Once it becomes full, no more elements can be added (this causes overflow).
+   - If the stack is empty and we try to remove an element, it causes underflow.
+   - Typically implemented using a static array.
+     
+3) **Dynamic Size Stack**
+   - A dynamic size stack can grow and shrink automatically as needed.
+   - If the stack is full, its capacity expands to allow more elements.
+   - As elements are removed, memory usage can shrink as well.
+   - Can be implemented using:
+     - **Linked List** → grows/shrinks naturally.
+     - **Dynamic Array** (like vector in C++ or ArrayList in Java) → resizes automatically.
+
+**Note:** We generally use dynamic stacks in practice, as they can grow or shrink as needed without overflow issues.
+
+## Coding Interview Questions
+1) Reverse a string using stack
+2) Check balanced parentheses: e.g., **( [ { } ] )**
+3) Convert infix to postfix expression
+4) Evaluate postfix expression
+5) Implement two stacks in one array
+
+## Stack Implementation
+A stack can be implemented in two ways:  
+1️⃣ Array Implementation  
+2️⃣ Linked List Implementation  
+
+
+
+
+
+
 ## **Problem statement-1:**
 Write a C program to implement stack using static memory allocation(Array) with call by value concept(By Returninig).
 
