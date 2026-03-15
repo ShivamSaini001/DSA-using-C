@@ -1,7 +1,16 @@
 # Stack Notes
 
 A **Stack** is a **linear data structure or abstract data type (ADT) that follows the Last In First Out (LIFO) principle** in which **insertion** and **deletion** operations are performed only at one end called the **TOP** of the stack.  
-Stack is also called an **Abstract Data Type (ADT)** because it defines operations but not implementation.
+Stack is also called an **Abstract Data Type (ADT)** because it defines operations but not implementation.  
+Stack is considered a complex data structure because it uses other data structures for implementation, such as Arrays, Linked lists, etc.
+
+**Stack overflow?** 
+When **no more space is available in the stack**, but we still try to **push a new element**, it causes **stack overflow**.
+Condition for Stack Overflow
+
+
+**Stack underflow:** 
+
 
 ## Basic Operations of Stack
 There are **five** main operations.
@@ -56,24 +65,18 @@ Stacks are used in many real world and programming situations.
 
 ## Stack Implementation
 A stack can be implemented in two ways:  
-1️⃣ Array Implementation  
-2️⃣ Linked List Implementation  
 
+### 1️⃣ Array Implementation
+A **Stack using Array** is an implementation of the Stack data structure where we use an **array to store elements** and **a variable called top to track the position of the last inserted element.**
 
-
-
-
-
-## **Problem statement-1:**
+### **Problem statement- 1**
 Write a C program to implement stack using static memory allocation(Array) with call by value concept(By Returninig).
 
-## **Objective:**
-To understand the concept of Stack using Array.
+**Objective:** To understand the concept of Stack using Array.
 
-## Assumptions:
-Let we have an Array named as stack and a local variable top.
+**Assumptions:** Let we have an Array named as stack and a local variable top.
 
-## **Algorithm for push operation:**
+### **Algorithm for push operation:**
 
 <pre>
   Step-1: START
@@ -89,7 +92,7 @@ Let we have an Array named as stack and a local variable top.
   step-8: STOP
 </pre>
 
-## **Algorithm for pop operation:**
+### **Algorithm for pop operation:**
 
 <pre>
   Step-1: START
@@ -103,7 +106,7 @@ Let we have an Array named as stack and a local variable top.
   step-7: STOP
 </pre>
 
-## **Algorithm for peek operation:**
+### **Algorithm for peek operation:**
 
 <pre>
   Step-1: START
@@ -115,7 +118,7 @@ Let we have an Array named as stack and a local variable top.
   step-5: STOP
 </pre>
 
-## **Algorithm for display operation:**
+### **Algorithm for display operation:**
 
 <pre>
   Step-1: START
@@ -129,11 +132,9 @@ Let we have an Array named as stack and a local variable top.
   step-7: STOP
 </pre>
 
-## **Code:**
+### **Code:** Stack Implementation using Array (call by value)
 
 ```c
-//Stack Implementation using stack (call by value)
-
   #define MAX 10
   #include<stdio.h>
   #include<conio.h>
@@ -180,12 +181,10 @@ Let we have an Array named as stack and a local variable top.
           }
       }
   }
-  
-  
+
   void main(){
       int stack[MAX], top = -1;
       int ch;
-
       printf("\n1. push\n");
       printf("2. pop\n");
       printf("3. peek\n");
@@ -210,24 +209,18 @@ Let we have an Array named as stack and a local variable top.
           }
       }while(ch <= 4);
   }
-
 ```
 
-
-## **Problem statement-2:**
+### **Problem statement-2:**
 Write a C program to implement stack using static memory allocation(Array) with call by reference concept(without returninig).
 
-## **Objective:**
-To understand the concept of Stack using Array.
+**Objective:** To understand the concept of Stack using Array.
 
-## Assumptions:
-Let we have an Array named as stack and a local variable top.
+**Assumptions:** Let we have an Array named as stack and a local variable top.
 
-## **Code:**
+### **Code:** Stack Implementation using Array (call by reference)
 
 ```c
-  //Stack Implementation using stack (call by reference)
-
     #define MAX 10
     #include<stdio.h>
     #include<conio.h>
@@ -277,7 +270,6 @@ Let we have an Array named as stack and a local variable top.
     void main(){
         int stack[MAX], top = -1;
         int ch;
-  
         printf("\n1. push\n");
         printf("2. pop\n");
         printf("3. peek\n");
@@ -304,24 +296,29 @@ Let we have an Array named as stack and a local variable top.
     }
 ```
 
+### 2️⃣ Linked List Implementation
+A **Stack using Linked List** means implementing the stack data structure using **nodes connected through pointers** instead of using an array.  
+Each element of the stack is stored in a **node**, and nodes are connected using **links (pointers)**.  
+The **top of the stack points to the first node** of the linked list.  
 
-## **Problem statement-3:**
+Each node in the linked list contains two parts--
+- **Data** -> To stores the value
+- **Next** -> To stores the address of next node
+
+In a stack implemented with a linked list--
+- **Insertion happens at the beginning**
+- **Deletion happens at the beginning**
+- The first node is called **TOP**
+
+
+### **Problem statement-1**
 Write a C program to implement stack using dynamic memory allocation(Linked List) with call by value concept(By Returninig).
 
-## **Objective:**
-To understand the concept of Stack using Linked List.
+**Objective:** To understand the concept of Stack using Linked List.  
+**Assumptions:** Let we have a complex data type structure and a local pointer top initialize with NULL.
 
-## Assumptions:
-Let we have a complex data type structure and a local pointer top initialize with NULL.
-
-## **Algorithm for push operation:**
-// Note: Insertion and Deletion operation at the start of the Linked List.
-
-
-## **Code:**
+### **Code:** Implement Stack using Linked List with the concept of call by value.
 ```c
-  // Implement Stack using Linked List with the concept of call by value.
-  
   #include<stdio.h>
   
   typedef struct Stack{
@@ -411,26 +408,15 @@ Let we have a complex data type structure and a local pointer top initialize wit
   }
 ```
 
-## **Problem statement-4:**
+### **Problem statement-2**
 Write a C program to implement stack using dynamic memory allocation(Linked List) with call by reference concept(Without Returninig).
 
-## **Objective:**
-To understand the concept of Stack using Linked List.
+**Objective:** To understand the concept of Stack using Linked List.  
+**Assumptions:** Let we have a complex data type structure and a local pointer top initialize with NULL.
 
-## Assumptions:
-Let we have a complex data type structure and a local pointer top initialize with NULL.
-
-## **Algorithm for push operation:**
-// Note: Insertion and Deletion operation at the start of the Linked List.
-
-
-
-
-## **Code:**
+### **Code:** Implement Stack using Linked List with the concept of call by Reference.
 
 ```c
-  // Implement Stack using Linked List with the concept of call by Reference.
-  
   #include<stdio.h>
   #include<stdlib.h>
   
