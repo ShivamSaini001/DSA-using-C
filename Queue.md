@@ -1,18 +1,24 @@
 # Queue
-
-A Queue is a **linear data structure** that follows the principle of **FIFO (First In First Out)**.
-i.e., The **element inserted first** will be **removed first**.
-
+A Queue is a **linear data structure or Abstract Data Type (ADT)** that follows the principle of **FIFO (First In First Out)** in which insertion takes place at the **rear end** and deletion takes place at the **front end**.  
+FIFO means the **element inserted first** will be **removed first**.  
 A queue has mainly two ends--  
 **1) Front:** The position from where elements are removed  
 **2) Rear:** The position where elements are inserted
 
 <img width="745" height="146" alt="image" src="https://github.com/user-attachments/assets/a3419eba-8867-463f-a80e-6f750754d755" />
 
+## Simple Real-Life Example
+Think about a queue of people at a ticket counter.
+- The first person in the line gets served first
+- New people join at the end of the line
+
 ## Applications of Queue
-1) Processor Scheduling
-2) Device Scheduling
-3) In Implementing BFS(Breadth First Search)
+1) CPU Scheduling
+2) Printer Spooling
+3) Device Scheduling
+4) Call Center Systems
+5) Network Data Packets
+6) In Implementing BFS(Breadth First Search)
 
 ## Basic Operations of Queue
 1) Enqueue (Insertion)- To add an element at the rear end of the queue
@@ -22,6 +28,22 @@ A queue has mainly two ends--
 5) isEmpty()
 6) isFull()
 
+## Queue Implementation
+A queue can be implemented using--  
+1️⃣ Array  
+2️⃣ Linked List  
+
+## Queue Overflow and Underflow
+
+### 1. Queue Overflow
+Occurs when we try to insert element into a full queue.
+**Condition:**
+rear == MAX - 1
+
+### 2. Queue Underflow
+Occurs when we try to remove element from an empty queue.
+**Condition:**
+front > rear
 
 ## Types of Queue
 There are **four main types of queues** in Data Structures:
@@ -29,6 +51,14 @@ There are **four main types of queues** in Data Structures:
 2) Circular Queue
 3) Priority Queue
 4) Deque (Double Ended Queue)
+
+
+## 1) Linear Queue (Simple Queue):
+
+
+
+
+
 
 
 ## Simple Queue
