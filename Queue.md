@@ -53,11 +53,11 @@ A Simple Queue is also called **Linear Queue**.
 
 ### 1️⃣ Array Representation of Simple Queue
 
-<img src="asserts/Simple Queue.png" />
+<img src="asserts/queue/Simple Queue.png" />
 
 ### Queue Overflow and Underflow
 **1. Queue Overflow**  
-<img src="asserts/Simple Queue Overflow.png" alt="Simple Queue Overflow"/>
+<img src="asserts/queue/Simple Queue Overflow.png" alt="Simple Queue Overflow"/>
 
 Occurs when we try to insert element into a full queue.
 **Condition:**
@@ -70,7 +70,7 @@ After multiple dequeue operations--
 - Even if space exists, queue may show **overflow**
 
 **2. Queue Underflow**  
-<img src="asserts/Simple Queue Underflow.png" alt="Simple Queue Underrflow"/>
+<img src="asserts/queue/Simple Queue Underflow.png" alt="Simple Queue Underrflow"/>
 
 Occurs when we try to remove element from an empty queue.
 **Condition:**
@@ -174,6 +174,8 @@ _front == -1 && rear == -1_
 
 ### 2️⃣ Linked List Representation of Simple Queue 
 
+<img src="asserts/queue/Simple queue using Linked List.png" alt="asserts/queue/Simple queue using Linked List.png"/>
+
 In this implementation, a **queue is created using a linked list**, where:
 - Each element is stored in a **node**
 - Nodes are connected using **pointers**
@@ -190,8 +192,6 @@ Each node contains:
 Occurs when we try to **insert new node** into a queue but **new node cannot be created**.
 
 **2. Queue Underflow**  
-<img src="#" alt="#"/>
-
 Occurs when we try to remove element from an empty queue.
 **Condition:**
 _front == NULL && rear == NULL_
@@ -307,7 +307,22 @@ _front == NULL && rear == NULL_
     }
 ```
 
-## Circular Queue
+
+
+## 2) Circular Queue
+A **Circular Queue** is a type of queue in which **the last position is connected back to the first position**, forming a **circle**.
+
+
+
+**Why Circular Queue is Needed?**  
+
+<img src="asserts/queue/Circular queue.png" />
+
+In a **Simple Queue**, space gets wasted after deletions even if space is available, we **cannot reuse it**.
+Circular Queue solves this problem by **reusing empty spaces**.
+
+
+
 
 ```C
     #define MAX 10
