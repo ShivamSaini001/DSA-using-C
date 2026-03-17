@@ -172,11 +172,139 @@ _front == -1 && rear == -1_
     }
 ```
 
-### 2️⃣ Linked List Representation of Simple Queue (Call By Value Concept)
+### 2️⃣ Linked List Representation of Simple Queue 
+
+In this implementation, a **queue is created using a linked list**, where:
+- Each element is stored in a **node**
+- Nodes are connected using **pointers**
+- We maintain **two pointers**:
+  - **Front** (for deletion)
+  - **Rear** (for insertion)
+
+Each node contains:
+- **Data->** Stores value
+- **Next->** Points to next node
+
+### Queue Overflow and Underflow
+**1. Queue Overflow**  
+Occurs when we try to **insert new node** into a queue but **new node cannot be created**.
+
+**2. Queue Underflow**  
+<img src="#" alt="#"/>
+
+Occurs when we try to remove element from an empty queue.
+**Condition:**
+_front == NULL && rear == NULL_
+
+
+### Code (Call By Value Concept):
 
 ```C
-
-
+    #include<stdio.h>
+    #include<stdlib.h>
+    
+    typedef struct Node{
+        int data;
+        struct Node *next;
+    }Node;
+    
+    Node * enqueue(Node *front, Node *rear);
+    Node * dequeue(Node *front, Node *rear);
+    void peek(Node *front);
+    void display(Node *front);
+    
+    void main(){
+        Node *front = NULL, *rear = NULL;
+        int ch;
+        printf("1. Enqueue\n");
+        printf("2. Dequeue\n");
+        printf("3. Peek\n");
+        printf("4. Display\n");
+        printf("5. Exit\n");
+        do{
+           printf("\nEnter your choice: ");
+           scanf("%d", &ch);
+           switch(ch){
+                case 1:
+                    rear = enqueue(front, rear);
+                    if(front==NULL){
+                        front = rear;
+                    }
+                    break;
+                case 2:
+                    front = dequeue(front, rear);
+                    if(front == NULL){
+                        rear = NULL;
+                    }
+                    break;
+                case 3:
+                    peek(front);
+                    break;
+                case 4:
+                    display(front);
+                    break;
+           }
+        }while(ch < 5);
+    }
+    
+    
+    Node * enqueue(Node *front, Node *rear){
+        int x;
+        printf("Enter data: ");
+        scanf("%d", &x);
+        Node *newNode = NULL;
+        newNode = (Node *) malloc(sizeof(Node));
+        if(newNode == NULL){
+            printf("Memory cannot be allocated(Overflow)!\n");
+        }
+        else{
+            newNode->data = x;
+            newNode->next = NULL;
+            if(front == NULL && rear == NULL){
+                rear = newNode;
+            }
+            else{
+                rear->next = newNode;
+                rear = newNode;
+            }
+        }
+        return rear;
+    }
+    
+    Node * dequeue(Node *front, Node *rear){
+        if(front == NULL && rear == NULL){
+            printf("Queue is empty(Underflow)!\n");
+        }
+        else{
+            Node *temp = front;
+            printf("Deleted element is: %d", temp->data);
+            front = front->next;
+            free(temp);
+        }
+        return front;
+    }
+    
+    void peek(Node *front){
+        if(front == NULL){
+            printf("Queue is empty(Underflow)!\n");
+        }
+        else{
+            printf("Peak element is: %d", front->data);
+        }
+    }
+    
+    void display(Node *front){
+        if(front == NULL){
+            printf("Queue is empty(Underflow)!\n");
+        }
+        else{
+            do{
+                printf("%d -> ", front->data);
+                front = front->next;
+            }while(front != NULL);
+            printf("NULL");
+        }
+    }
 ```
 
 ## Circular Queue
