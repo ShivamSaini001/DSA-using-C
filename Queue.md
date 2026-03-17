@@ -33,35 +33,51 @@ A queue can be implemented using--
 1️⃣ Array  
 2️⃣ Linked List  
 
-## Queue Overflow and Underflow
-
-### 1. Queue Overflow
-Occurs when we try to insert element into a full queue.
-**Condition:**
-rear == MAX - 1
-
-### 2. Queue Underflow
-Occurs when we try to remove element from an empty queue.
-**Condition:**
-front > rear
-
 ## Types of Queue
 There are **four main types of queues** in Data Structures:
-1) Linear Queue (Simple Queue)
+1) Simple Queue (Linear Queue)
 2) Circular Queue
 3) Priority Queue
 4) Deque (Double Ended Queue)
 
 
-## 1) Linear Queue (Simple Queue):
+## 1) Simple Queue (Linear Queue):
+A Simple Queue is also called **Linear Queue**.
 
+### Time Complexity
+| Operation | Complexity |
+|-----------|------------|
+| Enqueue | O(1) |
+| Dequeue | O(1) |
+| Peek | O(1) |
 
+### 1️⃣ Array Representation of Simple Queue
 
+<img src="asserts/Simple Queue.png" />
 
+### Queue Overflow and Underflow
+**1. Queue Overflow**  
+<img src="asserts/Simple Queue Overflow.png" alt="Simple Queue Overflow"/>
 
+Occurs when we try to insert element into a full queue.
+**Condition:**
+_rear == MAX - 1_
 
+**Limitation of Simple Queue**  
+After multiple dequeue operations--
+- Front moves forward
+- Empty spaces cannot be reused
+- Even if space exists, queue may show **overflow**
 
-## Simple Queue
+**2. Queue Underflow**  
+<img src="asserts/Simple Queue Underflow.png" alt="Simple Queue Underrflow"/>
+
+Occurs when we try to remove element from an empty queue.
+**Condition:**
+_front == -1 && rear == -1_
+
+### Code (Call By Value Concept):
+
 ```C
     #define MAX 10
     #include<stdio.h>
@@ -70,7 +86,6 @@ There are **four main types of queues** in Data Structures:
     int dequeue(int queue[], int front, int rear);
     void peek(int queue[], int front, int rear);
     void display(int queue[], int front, int rear);
-    
     
     void main(){
         int queue[MAX], front=-1, rear=-1, ch;
@@ -157,6 +172,12 @@ There are **four main types of queues** in Data Structures:
     }
 ```
 
+### 2️⃣ Linked List Representation of Simple Queue (Call By Value Concept)
+
+```C
+
+
+```
 
 ## Circular Queue
 
