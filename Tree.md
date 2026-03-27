@@ -73,6 +73,15 @@
             countLeafNodes(ptr->right, c);
         }
     }
+
+    int height(Node *root){
+        if(root == NULL){
+            return -1;
+        }
+        int l = height(root->left);
+        int r = height(root->right);
+        return (l>=r ? l : r) + 1;
+    }
     
     void main(){
         Node *BST = NULL;
@@ -96,5 +105,8 @@
     
         countLeafNodes(BST, &leaf);
         printf("\nTotal no. of leaf nodes are: %d", leaf);
+
+        int h = height(BST);
+        printf("\nHeight of the tree are: %d", h);
     }
 ```
