@@ -131,3 +131,81 @@
   }
 
 ```
+
+## Doubly Linked List
+
+```C
+  #include<stdio.h>
+  #include<stdlib.h>
+  
+  typedef struct Node{
+      int info;
+      struct Node *prev, *next;
+  }Node;
+  
+  Node* insertNodeAtFirst(Node *head){
+      Node *newNode = (Node*) malloc(sizeof(Node));
+      printf("\nEnter data: ");
+      scanf("%d", &(newNode->info));
+      if(head == NULL){
+          head = newNode;
+          head->next = NULL;
+          head->prev = NULL;
+      }
+      else{
+          newNode->prev = NULL;
+          newNode->next = head;
+          head->prev = newNode;
+          head = newNode;
+      }
+      return head;
+  }
+  
+  void displayList(Node *head){
+      if(head != NULL){
+          do{
+              printf("%d ", head->info);
+              head = head->next;
+          }while(head != NULL);
+      }
+  }
+  
+  Node* swapFirstWithLast(Node *head){
+      if(head != NULL){
+          int data;
+          Node *lastNode = head;
+          while(lastNode->next != NULL){
+              lastNode = lastNode->next;
+          }
+          data = lastNode->info;
+          lastNode->info = head->info;
+          head->info = data;
+      }
+      return head;
+  }
+  
+  void main(){
+      Node *head=NULL;
+      int choice;
+      printf("\n1. Insert new node");
+      printf("\n2. Display");
+      printf("\n3. Swap first and last node");
+      do{
+          printf("\nEnter your choice: ");
+          scanf("%d", &choice);
+  
+          switch(choice){
+          case 1:
+              head = insertNodeAtFirst(head);
+              break;
+          case 2:
+              displayList(head);
+              break;
+          case 3:
+              head = swapFirstWithLast(head);
+          }
+      }while(choice <= 3 && choice > 0);
+  
+  
+  }
+```
