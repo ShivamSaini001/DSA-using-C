@@ -209,6 +209,75 @@ int main() {
 
 ```
 
+# 0/1 Knapsack using Recursion, Brute Force and Structure in C
+
+We need to select items such that:
+- The total weight does not exceed the capacity.
+- The total profit is maximum.
+- Each item is either selected completely (1) or rejected (0).
+- Items cannot be divided into fractions.
+
+```C
+#include <stdio.h>
+
+struct Item {
+    int weight;
+    int profit;
+};
+
+// Recursive Brute Force function
+int knapsack(struct Item items[], int n, int capacity) {
+
+    // Base case
+    if (n == 0 || capacity == 0) {
+        return 0;
+    }
+
+    // If current item is heavier than capacity
+    if (items[n - 1].weight > capacity) {
+        return knapsack(items, n - 1, capacity);
+    }
+
+    // Include or exclude the current item
+    int include = items[n - 1].profit + knapsack(items, n - 1, capacity - items[n - 1].weight);
+    int exclude = knapsack(items, n - 1, capacity);
+
+    // Return maximum profit
+    return (include > exclude) ? include : exclude;
+}
+
+int main() {
+
+    int n, capacity;
+
+    printf("Enter number of items: ");
+    scanf("%d", &n);
+
+    struct Item items[n];
+
+    printf("Enter knapsack capacity: ");
+    scanf("%d", &capacity);
+
+    printf("\nEnter weight and profit of each item:\n");
+
+    for (int i = 0; i < n; i++) {
+        printf("Item %d: ", i + 1);
+
+        scanf("%d %d",
+              &items[i].weight,
+              &items[i].profit);
+    }
+
+    int maximumProfit = knapsack(items, n, capacity);
+
+    printf("\nMaximum Profit = %d\n", maximumProfit);
+
+    return 0;
+}
+
+```
+
+
 
 
 
