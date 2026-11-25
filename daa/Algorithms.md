@@ -112,3 +112,108 @@
   }
 
 ```
+
+# Fractional Knapsack problem using a greedy approach in C
+
+- The greedy approach selects items according to their profit-to-weight ratio: `Ratio=Profit/Weight`
+- We select the item with the highest ratio first.
+
+```C
+#include<stdio.h>
+
+struct product{
+    int profit;
+    int weight;
+};
+
+// sort the array based on ratio of profit and weight. (descending)
+void sort(struct product products[], int n){
+    for(int i = 0; i < n -1; i++){
+        for(int j = 0; j < n - i - 1; j++){
+            float r1 = (float)products[j].profit / products[j].weight;
+            float r2 = (float)products[j+1].profit / products[j+1].weight;
+
+            if(r1 < r2){
+                struct product temp;
+                temp = products[j];
+                products[j] = products[j+1];
+                products[j+1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    // max = 16 kg
+    // profits(P) = [14, 30, 36, 20, 18]
+    // weights(W) = [2, 5, 6, 4, 3] kg
+    // W/P (unit) = [7, 6, 6, 5, 6]
+
+    int n, capacity;
+    printf("Enter the no. of items: ");
+    scanf("%d", &n);
+    struct product products[n];
+
+    printf("Enter the profit and weights of the products: ");
+
+    for(int i = 0; i < n; i++){
+        scanf("%d%d", &(products[i].profit), &(products[i].weight));
+    }
+
+    printf("Enter knapsack capacity: ");
+    scanf("%d", &capacity);
+    
+    sort(products, n);
+
+    // Fractional Knapsack using Greedy Approach
+    float totalProfit = 0;
+
+    printf("\nSelected Items:\n");
+    printf("Weight\tProfit\tFraction\n");
+
+    
+    for (int i = 0; i < n; i++) {
+        if (capacity == 0) {
+            break;
+        }
+
+        // If complete item can fit
+        if (products[i].weight <= capacity) {
+            capacity -= products[i].weight;
+            totalProfit += products[i].profit;
+
+            printf("%d\t%d\n",
+                   products[i].weight,
+                   products[i].profit);
+        }
+
+        // If only a fraction can fit
+        else {
+
+            float fraction = (float) capacity / products[i].weight;
+            totalProfit += products[i].profit * fraction;
+
+            printf("%d\t%d\t%.2f\n",
+                   products[i].weight,
+                   products[i].profit,
+                   fraction);
+
+            capacity = 0;
+        }
+    }
+
+    printf("\nMaximum Profit = %.2f\n", totalProfit);
+    
+    return 0;
+}
+
+```
+
+
+
+
+
+
+
+
+
