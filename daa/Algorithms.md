@@ -169,7 +169,7 @@ int main() {
     float totalProfit = 0;
 
     printf("\nSelected Items:\n");
-    printf("Weight\tProfit\tFraction\n");
+    printf("Weight\tProfit\n");
 
     
     for (int i = 0; i < n; i++) {
@@ -189,15 +189,8 @@ int main() {
 
         // If only a fraction can fit
         else {
-
-            float fraction = (float) capacity / products[i].weight;
-            totalProfit += products[i].profit * fraction;
-
-            printf("%d\t%d\t%.2f\n",
-                   products[i].weight,
-                   products[i].profit,
-                   fraction);
-
+            totalProfit += ((float)products[i].profit / products[i].weight) * capacity;
+            printf("%d\t%d\n", products[i].weight, products[i].profit);
             capacity = 0;
         }
     }
